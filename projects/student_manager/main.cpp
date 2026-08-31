@@ -9,13 +9,16 @@ struct Student{
 };
 
 int main(){
-    Student s1;
-    
-    cin>>s1.name >> s1.age >> s1.score;
+    Student student[10];
+    int n;
 
-
-    cout<<s1.name <<" "<< s1.age<<" "<<s1.score;
-
+    cin>>n;
+    for(int i = 0;  i < n; i++){
+        cin>>student[i].name>>student[i].age>>student[i].score;
+    }
+    for(int i = 0; i < n; i++){
+        cout<<student[i].name<<" "<<student[i].age<<" "<<student[i].score<<"\n";
+    }
     return 0;
 
 }
