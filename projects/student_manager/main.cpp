@@ -12,6 +12,10 @@ void printAllStudents(Student student[], int n){
         cout<<student[i].name<<" "<<student[i].age<<" "<<student[i].score<<"\n";
     }
 }
+/*void -> return 해주는게 없는 것
+ex) calculateAverage -> double을 돌려줌
+findMax -> int를 돌려줌
+화면에 출력만 하고 끝 -> void*/
 
 double calculateAverage(Student student[], int n){
     int sum = 0;
@@ -44,6 +48,9 @@ int main(){
         switch(choice){
             case 1:
                 cout<<"학생 추가 선택됨\n";
+                cin>>student[n].name>>student[n].age>>student[n].score;
+                cout<<student[n].name<<" 학생을 추가했습니다.\n";
+                n = n+1;
                 break;
             case 2:
                 cout<<"전체 목록 보기 선택됨\n";
