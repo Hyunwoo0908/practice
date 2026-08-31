@@ -57,5 +57,16 @@ int main(){
 
     cout<<"최저점 :"<<MinValue<<"\n";
 
+    for(int i = 0; i < student; i++){
+        if(arr[i] >= avg){
+            cout<<arr[i] << "점 - 평균 이상\n";
+        }else{
+            cout<<arr[i] << "점 - 평균 이하\n";
+        }
+    }
+
     return 0;
 }
+//cd projects\grade_manager 로 위치 바꾸고 실행하기
+//g++ main.cpp -o main
+// ./main
