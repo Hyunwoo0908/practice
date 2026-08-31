@@ -58,3 +58,5 @@ public class Main{
     }
 
 }
+//main 함수 안에서 calculateAverage 호출하려면 calculateAverage도 static이어야 함
+//static 함수는 객체 없이 존재하는 함수 -> 마찬가지로 객체 없이 존재하는 다른 static 함수는 바로 호출 가능
