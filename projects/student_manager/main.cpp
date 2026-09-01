@@ -111,19 +111,26 @@ int main(){
                 string deleteName;
                 cout<<"삭제할 이름을 입력해 주세요: ";
                 cin>>deleteName;
-                int index = -1;
+
+                int index = -1; //아직 못 찾은 상태를 표시 bool something = false; 와 같은 방식
+
                 for(int i = 0; i < n; i++){
                     if(student[i].name == deleteName){
-                        index = i;
+                        index = i; //찾으면 실제 위치(0,1,2...)로 바뀜
                     }
                 }
-                
-                if(index == -1){
+                /*index를 -1로 시작하는 이유
+                : 배열의 실제 인덱스는 항상 0이상이라서 -1은 "그런 위치가 없다 = 아직 못 찾았다"
+                는 의미로 쓸 수 있음
+                (0으로 시작 시 "0번째에서 찾은 것"과 "못 찾은 것"을 구분할 수 없음) */
+                if(index == -1){ //못 찾은 경우
                     cout<<"해당 학생을 찾을 수 없습니다.\n";
                 }else{
+
                     for(int i = index; i < n-1; i++){
                         student[i] = student[i+1];
                     }
+
                     n -= 1;
                     cout<<deleteName<<" 학생을 삭제했습니다.\n";
                 }
