@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 struct Student{
@@ -28,10 +29,22 @@ int main(){
     Student student[10];
     int n;
 
-    cin>>n;
-    for(int i = 0;  i < n; i++){
-        cin>>student[i].name>>student[i].age>>student[i].score;
+    ifstream inFile("students.txt");
+
+    inFile>>n; //파일에서 학생 수 읽기(영구 저장)
+
+    /*cin >> n;
+    for(int i = 0; i < n; i++){
+    cin >> student[i].name >> student[i].age >> student[i].score;
+    } <- 기존 코드(실행 할 때 마다 입력받아야 했음)*/
+
+
+    for(int i = 0; i < n; i++){
+        inFile>>student[i].name>>student[i].age>>student[i].score;
     }
+
+    inFile.close();
+
     for(int i = 0; i < n; i++){
         cout<<student[i].name<<" "<<student[i].age<<" "<<student[i].score<<"\n";
     }
@@ -74,6 +87,14 @@ int main(){
         break;
         }
     }
+    ofstream outFile("students.txt");
+    outFile << n <<"\n";
+
+    for(int i = 0; i < n; i++){
+        outFile << student[i].name <<" "<<student[i].age<<" "<<student[i].score<<"\n";
+    }
+    outFile.close();
+    
     return 0;
 
 }
