@@ -53,11 +53,13 @@ int main(){
         cout<<"1. 학생 추가\n";
         cout<<"2. 전체 목록 보기\n";
         cout<<"3. 평균 점수 보기\n";
-        cout<<"4. 종료\n";
+        cout<<"4. 학생 검색\n";
+        cout<<"5. 종료\n";
 
         int choice;
         cin>>choice;
 
+//case문 안에 새로운 변수 선언 시 해당 case는 중괄호로 묶어주기
         switch(choice){
             case 1:
                 cout<<"학생 추가 선택됨\n";
@@ -78,12 +80,37 @@ int main(){
                 break;
                 }
             case 4:
-                cout<<"종료합니다.\n";
+                {
+                cout<<"학생 검색 선택됨\n";
+                string searchName;
+                cout<<"검색할 이름을 입력해 주세요: ";
+                cin>>searchName;
+
+                bool found = false;
+                /*bool이 false로 시작하는 이유
+                -> 아직 학생을 못 찾은 상태에서 검색을 시작하기 때문
+                (아직 for문을 한 번도 안 돌았으니, 당연히 아직 못 찾음 -> false)*/
+
+                for(int i = 0; i < n; i++){
+                    if(student[i].name == searchName){
+                        cout<<student[i].name<<" "<<student[i].age<<" "<<student[i].score<<"\n";
+                        found = true; //찾을 시 -> 상태를 "찾음" 으로 바꿔줌
+                    }
+                }
+                /*for문을 다 돈 후 확인
+                found가 여전히 false라면 -> 한 번도 못 찾았다는 것*/
+                if(found == false){
+                    cout<<"해당 학생을 찾을 수 없습니다.\n";
+                }
+                break;
+            }
+            case 5:
+            cout<<"종료합니다.\n";
                 break;
             default:
                 cout<<"잘못된 선택입니다.\n";
         }
-        if(choice == 4){
+        if(choice == 5){
         break;
         }
     }
