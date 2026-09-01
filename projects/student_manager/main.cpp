@@ -54,7 +54,8 @@ int main(){
         cout<<"2. 전체 목록 보기\n";
         cout<<"3. 평균 점수 보기\n";
         cout<<"4. 학생 검색\n";
-        cout<<"5. 종료\n";
+        cout<<"5. 학생 삭제\n";
+        cout<<"6. 종료\n";
 
         int choice;
         cin>>choice;
@@ -104,13 +105,37 @@ int main(){
                 }
                 break;
             }
+
             case 5:
+            {
+                string deleteName;
+                cout<<"삭제할 이름을 입력해 주세요: ";
+                cin>>deleteName;
+                int index = -1;
+                for(int i = 0; i < n; i++){
+                    if(student[i].name == deleteName){
+                        index = i;
+                    }
+                }
+                
+                if(index == -1){
+                    cout<<"해당 학생을 찾을 수 없습니다.\n";
+                }else{
+                    for(int i = index; i < n-1; i++){
+                        student[i] = student[i+1];
+                    }
+                    n -= 1;
+                    cout<<deleteName<<" 학생을 삭제했습니다.\n";
+                }
+                break;
+            }
+            case 6:
             cout<<"종료합니다.\n";
                 break;
             default:
                 cout<<"잘못된 선택입니다.\n";
         }
-        if(choice == 5){
+        if(choice == 6){
         break;
         }
     }
